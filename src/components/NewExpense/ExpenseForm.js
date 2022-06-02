@@ -4,36 +4,42 @@ import '../../styles/ExpenseForm.css'
 
 const ExpenseForm = () => {
     
-    // const [enteredTitle, setEnteredTitle] = useState('')
-    // const [enteredAmount, setEnteredAmount] = useState('')
-    // const [enteredDate, setEnteredDate] = useState('')
+    const [enteredTitle, setEnteredTitle] = useState('')
+    const [enteredAmount, setEnteredAmount] = useState('')
+    const [enteredDate, setEnteredDate] = useState('')
 
-    const[userInput, setUserInput] = useState({
-        enteredTitle: '',
-        enteredAmount: '',
-        enteredDate: ''
-    })
+    // const[userInput, setUserInput] = useState({
+    //     enteredTitle: '',
+    //     enteredAmount: '',
+    //     enteredDate: ''
+    // })
 
     const titleChangeHandler = (event) => {
-        // setEnteredTitle(event.target.value)
-        setUserInput({
-            ...userInput,
-            enteredTitle: event.target.value,
-        })
+        setEnteredTitle(event.target.value)
+        // setUserInput({
+        //     ...userInput,
+        //     enteredTitle: event.target.value,
+        // })
     }
     const amountChangeHandler = (event) => {
-        // setEnteredAmount(event.target.value)
-        setUserInput({
-            ...userInput,
-            enteredAmount: event.target.value
-        })
+        setEnteredAmount(event.target.value)
+        // setUserInput({
+        //     ...userInput,
+        //     enteredAmount: event.target.value
+        // })
     }
     const dayChangeHandler = (event) => {
-        // setEnteredDate(event.target.value)
-        setUserInput({
-            ...userInput,
-            enteredDate: event.target.value
-        })
+        setEnteredDate(event.target.value)
+        // setUserInput({
+        //     ...userInput,
+        //     enteredDate: event.target.value
+        // })
+        // Whenever you update State and depend on the previous state, you should not use it like this, call it as a function.
+        // React schedules state. Scheduling a lot at the same time is not ideal because you may depend on an outdated/incorrect state snapshot 
+        // With this new approach, react makes sure that your state will always be the latest. Keeping all scheduled state update in mind 
+        // setUserInput((prevState) => {
+        //     return { ...prevState, enteredTitle: event.target.value }
+        // })
     }
 
   return (
